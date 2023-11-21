@@ -1,5 +1,9 @@
-.container {
+body{
     background-image: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+
+.container {
+    background-image: linear-gradient(0.25turn, #bdbdbd, #ebf8e1, #bdbdbd);
     width: 100%;
     max-width: 600px;
     aspect-ratio: 1 / 1.25;
@@ -9,6 +13,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
     box-sizing: border-box; /* Include padding and border in the width calculation */
+    border-radius: 10px;
+    outline: #838383 solid 8px;
+}
+
+.display-class{
+    width: fit-content;
+    height: 20%;
+    margin-right: 4%;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.display-num{
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Add media query for smaller screens to adjust the container size */
@@ -20,13 +40,16 @@
 }
 
 .flex-grid{
-    background-color: red;
     width: 100%;
     aspect-ratio: 1 / 1;
     position: absolute;
     bottom: 0px;
     display: grid;
     grid-template-columns: repeat(4, 25%);
+    border-top: #838383 solid 5px;
+    background-color: #dfdfdf;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .button-class{
@@ -35,7 +58,7 @@
     border: none;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #3f87a6;
+    background-color: #80808067;
 }
 
 .zero-button{

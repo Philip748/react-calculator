@@ -3,6 +3,10 @@ import "./style.css";
 function App() {
   return (
     <div className="container">
+      <div className="display-class">
+        <div className="display-num">1234</div>
+      </div>
+
       <div className="flex-grid">
         <button className="button-class">C</button>
         <button className="button-class">+/-</button>
