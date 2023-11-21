@@ -1,0 +1,28 @@
+.container {
+    background-image: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1.25;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+/* Add media query for smaller screens to adjust the container size */
+@media (max-width: 600px) {
+    .container {
+        width: 90%; /* Adjust as needed */
+        max-width: none;
+    }
+}
+
+.flex-grid{
+    background-color: red;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    bottom: 0px;
+}
