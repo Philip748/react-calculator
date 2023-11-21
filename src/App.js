@@ -20,10 +20,9 @@ function App() {
         <button className="button-class">2</button>
         <button className="button-class">3</button>
         <button className="button-class">+</button>
-        <button className="button-class">0</button>
+        <button className="button-class zero-button">0</button>
         <button className="button-class">.</button>
         <button className="button-class">=</button>
-        <button className="button-class">t</button>
       </div>
     </div>
   );

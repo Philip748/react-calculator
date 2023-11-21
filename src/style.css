@@ -38,6 +38,10 @@
     background-color: #3f87a6;
 }
 
+.zero-button{
+    grid-column: 1 / 3;
+}
+
 .button-class:hover {
     outline: solid 3px #f69d3c;
 }
