@@ -14,7 +14,7 @@ body{
     transform: translate(-50%, -50%);
     box-sizing: border-box; /* Include padding and border in the width calculation */
     border-radius: 10px;
-    outline: #838383 solid 8px;
+    outline: #838383 solid 5px;
 }
 
 .display-class{
@@ -27,7 +27,7 @@ body{
 }
 
 .display-num{
-    font-size: 60px;
+    font-size: 5em;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -47,7 +47,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4, 25%);
     border-top: #838383 solid 5px;
-    background-color: #dfdfdf;
+    background-color: #dfdfdf3d;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
