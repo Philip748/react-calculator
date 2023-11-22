@@ -2,8 +2,29 @@
 import React from "react";
 import "./style.css";
 
-function Button({ className, children }) {
-  return <button className={`button-class ${className}`}>{children}</button>;
+function Button({ className, children, isOn, onClick }) {
+  const handleClick = () => {
+    if (className === "operator-button") {
+      onClick(); // Call the parent component's function to update state
+    } else {
+      console.log(children);
+    }
+  };
+
+  // Dynamic style based on whether the button is on or off
+  const buttonStyle = {
+    filter: isOn && className === "operator-button" ? "brightness(120%)" : "brightness(100%)",
+  };
+
+  return (
+    <button
+      className={`button-class ${className} ${isOn ? "operator-on" : ""}`}
+      style={buttonStyle}
+      onClick={handleClick}
+    >
+      {children}
+    </button>
+  );
 }
 
 export default Button;
