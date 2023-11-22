@@ -47,7 +47,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4, 25%);
     border-top: #838383 solid 5px;
-    background-color: #dfdfdf3d;
+    background-color: #868686c2;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -58,13 +58,21 @@ body{
     border: none;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #80808067;
+    background-color: #838383;
 }
 
 .zero-button{
     grid-column: 1 / 3;
 }
 
+.operator-button{
+    background-color: #f69d3c;
+}
+
+.top-operator-button{
+    background-color: #c4c4c4;
+}
+
 .button-class:hover {
-    outline: solid 3px #f69d3c;
+    filter: brightness(120%)
 }

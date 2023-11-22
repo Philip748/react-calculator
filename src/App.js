@@ -1,32 +1,34 @@
+// App.js
+import React from "react";
 import "./style.css";
+import Display from "./Display";
+import Button from "./Button";
 
 function App() {
   return (
     <div className="container">
-      <div className="display-class">
-        <div className="display-num">1234</div>
-      </div>
+      <Display />
 
       <div className="flex-grid">
-        <button className="button-class">C</button>
-        <button className="button-class">+/-</button>
-        <button className="button-class">%</button>
-        <button className="button-class">/</button>
-        <button className="button-class">7</button>
-        <button className="button-class">8</button>
-        <button className="button-class">9</button>
-        <button className="button-class">x</button>
-        <button className="button-class">4</button>
-        <button className="button-class">5</button>
-        <button className="button-class">6</button>
-        <button className="button-class">-</button>
-        <button className="button-class">1</button>
-        <button className="button-class">2</button>
-        <button className="button-class">3</button>
-        <button className="button-class">+</button>
-        <button className="button-class zero-button">0</button>
-        <button className="button-class">.</button>
-        <button className="button-class">=</button>
+        <Button className="top-operator-button">C</Button>
+        <Button className="top-operator-button">+/-</Button>
+        <Button className="top-operator-button">%</Button>
+        <Button className="operator-button">/</Button>
+        <Button>7</Button>
+        <Button>8</Button>
+        <Button>9</Button>
+        <Button className="operator-button">x</Button>
+        <Button>4</Button>
+        <Button>5</Button>
+        <Button>6</Button>
+        <Button className="operator-button">-</Button>
+        <Button>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
+        <Button className="operator-button">+</Button>
+        <Button className="zero-button">0</Button>
+        <Button>.</Button>
+        <Button className="operator-button">=</Button>
       </div>
     </div>
   );
