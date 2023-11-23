@@ -4,11 +4,7 @@ import "./style.css";
 
 function Button({ className, children, isOn, onClick }) {
   const handleClick = () => {
-    if (className === "operator-button") {
-      onClick(); // Call the parent component's function to update state
-    } else {
-      onClick(); // Call the parent component's function to update state
-    }
+    onClick(); // Call the parent component's function to update state
   };
 
   // Dynamic style based on whether the button is on or off
