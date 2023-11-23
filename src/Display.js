@@ -2,10 +2,10 @@
 import React from "react";
 import "./style.css";
 
-function Display() {
+function Display({children}) {
   return (
     <div className="display-class">
-      <div className="display-num">1234</div>
+      <div className="display-num">{children}</div>
     </div>
   );
 }

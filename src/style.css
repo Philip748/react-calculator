@@ -24,6 +24,7 @@ body{
     margin-left: auto;
     display: flex;
     align-items: center;
+    overflow: none;
 }
 
 .display-num{

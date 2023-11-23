@@ -7,7 +7,7 @@ function Button({ className, children, isOn, onClick }) {
     if (className === "operator-button") {
       onClick(); // Call the parent component's function to update state
     } else {
-      console.log(children);
+      onClick(); // Call the parent component's function to update state
     }
   };
 
