@@ -12,8 +12,14 @@ function App() {
     minusState: false,
     plusState: false,
   });
+  useEffect(() => {
+    console.log("operatorStates updated:", operatorStates);
+  }, [operatorStates]);
 
   const [readyToStartNewNumState, setReadyToStartNewNumState] = useState(false);
+  useEffect(() => {
+    console.log("readyToStartNewNumState updated:", readyToStartNewNumState);
+  }, [readyToStartNewNumState]);
 
   const [displayState, setDisplayState] = useState(0);
   useEffect(() => {
@@ -27,42 +33,53 @@ function App() {
 
   var newDisplayValue = 0;
 
-  const computeAnswer = () => {
+  const computeAnswer = (resetOps) => {
     if (operatorStates.divideState) {
+      console.log(storeState, "/" ,displayState);
       newDisplayValue = storeState / displayState;
     }
     if (operatorStates.multiplyState) {
+      console.log(storeState, "*" ,displayState);
       newDisplayValue = storeState * displayState;
     }
     if (operatorStates.minusState) {
+      console.log(storeState, "-" ,displayState);
       newDisplayValue = storeState - displayState;
     }
     if (operatorStates.plusState) {
+      console.log(storeState, "+" ,displayState);
       newDisplayValue = storeState + displayState;
     }
   
     // Update displayState directly
     setDisplayState(newDisplayValue);
   
-    // Create a new object with all operators set to false
+    if (resetOps){
+      // Create a new object with all operators set to false
     const newOperatorStates = Object.keys(operatorStates).reduce((acc, key) => {
       acc[key] = false;
       return acc;
     }, {});
     setOperatorStates(newOperatorStates);
+    }
     setStoreState(0);
   };
   
 
   const handleOperatorClick = (operator) => {
-    if (storeState != 0){
-      computeAnswer();
-
-      console.log("newDisplay: ", newDisplayValue)
-      setStoreState(newDisplayValue);
+    if(readyToStartNewNumState){
+      console.log("check 1");
+      setStoreState(0);
     }
     else {
-      setStoreState(displayState);
+      if (storeState != 0){
+        console.log("check 2");
+        computeAnswer(false);
+        setStoreState(newDisplayValue);
+      }
+      else {
+        setStoreState(displayState);
+      };
     };
 
     // Create a new object with all operators set to false
@@ -72,16 +89,16 @@ function App() {
     }, {});
 
     // Toggle the state of the clicked operator
-    newOperatorStates[operator] = !operatorStates[operator];
+    newOperatorStates[operator] = true;
 
     setOperatorStates(newOperatorStates);
     setReadyToStartNewNumState(true);
   };
 
   const handleNumberClick = (digit) => {
-    console.log(readyToStartNewNumState);
   
     if (readyToStartNewNumState) {
+      setStoreState(displayState)
       setDisplayState(0);
       setReadyToStartNewNumState(false);
     }
@@ -135,7 +152,7 @@ function App() {
         <Button className="operator-button" isOn={operatorStates.plusState} onClick={() => handleOperatorClick("plusState")}>+</Button>
         <Button className="zero-button" onClick={() => handleNumberClick(0)}>0</Button>
         <Button onClick={() => handleNumberClick(".")}>.</Button>
-        <Button className="equal-button" onClick={() => computeAnswer()}>=</Button>
+        <Button className="equal-button" onClick={() => computeAnswer(true)}>=</Button>
       </div>
     </div>
   );
