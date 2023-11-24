@@ -1,5 +1,5 @@
 // App.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import Display from "./Display";
 import Button from "./Button";
@@ -15,32 +15,54 @@ function App() {
 
   const [readyToStartNewNumState, setReadyToStartNewNumState] = useState(false);
 
+  const [displayState, setDisplayState] = useState(0);
+  useEffect(() => {
+    console.log("displayState updated:", displayState);
+  }, [displayState]);
+
+  const [storeState, setStoreState] = useState(0);
+  useEffect(() => {
+    console.log("storeState updated:", storeState);
+  }, [storeState]);
+
+  var newDisplayValue = 0;
+
   const computeAnswer = () => {
     if (operatorStates.divideState) {
-      setDisplayState(storeState / displayState);
-    };
+      newDisplayValue = storeState / displayState;
+    }
     if (operatorStates.multiplyState) {
-      setDisplayState(storeState * displayState);
-    };
+      newDisplayValue = storeState * displayState;
+    }
     if (operatorStates.minusState) {
-      setDisplayState(storeState - displayState);
-    };
+      newDisplayValue = storeState - displayState;
+    }
     if (operatorStates.plusState) {
-      setDisplayState(storeState + displayState);
-    };
-
+      newDisplayValue = storeState + displayState;
+    }
+  
+    // Update displayState directly
+    setDisplayState(newDisplayValue);
+  
     // Create a new object with all operators set to false
     const newOperatorStates = Object.keys(operatorStates).reduce((acc, key) => {
       acc[key] = false;
       return acc;
     }, {});
     setOperatorStates(newOperatorStates);
-    setStoreState(0)
+    setStoreState(0);
   };
+  
 
   const handleOperatorClick = (operator) => {
     if (storeState != 0){
       computeAnswer();
+
+      console.log("newDisplay: ", newDisplayValue)
+      setStoreState(newDisplayValue);
+    }
+    else {
+      setStoreState(displayState);
     };
 
     // Create a new object with all operators set to false
@@ -53,23 +75,19 @@ function App() {
     newOperatorStates[operator] = !operatorStates[operator];
 
     setOperatorStates(newOperatorStates);
-    setStoreState(displayState);
     setReadyToStartNewNumState(true);
   };
 
-  const [displayState, setDisplayState] = useState(0);
-
-  const [storeState, setStoreState] = useState(0);
-
   const handleNumberClick = (digit) => {
     console.log(readyToStartNewNumState);
+  
     if (readyToStartNewNumState) {
-      console.log(displayState);
       setDisplayState(0);
-      console.log(displayState);
       setReadyToStartNewNumState(false);
-    };
-    setDisplayState(appendDigit(displayState, digit));
+    }
+  
+    // Use the functional form of setState to ensure the latest state is used
+    setDisplayState(prevState => appendDigit(prevState, digit));
   };
 
   const handleClearClick = (digit) => {
