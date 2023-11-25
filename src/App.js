@@ -38,30 +38,33 @@ function App() {
       console.log(storeState, "/" ,displayState);
       newDisplayValue = storeState / displayState;
     }
-    if (operatorStates.multiplyState) {
+    else if (operatorStates.multiplyState) {
       console.log(storeState, "*" ,displayState);
       newDisplayValue = storeState * displayState;
     }
-    if (operatorStates.minusState) {
+    else if (operatorStates.minusState) {
       console.log(storeState, "-" ,displayState);
       newDisplayValue = storeState - displayState;
     }
-    if (operatorStates.plusState) {
+    else if (operatorStates.plusState) {
       console.log(storeState, "+" ,displayState);
       newDisplayValue = storeState + displayState;
     }
+    else{
+      newDisplayValue = displayState;
+    };
   
     // Update displayState directly
     setDisplayState(newDisplayValue);
   
     if (resetOps){
       // Create a new object with all operators set to false
-    const newOperatorStates = Object.keys(operatorStates).reduce((acc, key) => {
-      acc[key] = false;
-      return acc;
-    }, {});
-    setOperatorStates(newOperatorStates);
-    }
+      const newOperatorStates = Object.keys(operatorStates).reduce((acc, key) => {
+        acc[key] = false;
+        return acc;
+      }, {});
+      setOperatorStates(newOperatorStates);
+    };
     setStoreState(0);
   };
   
