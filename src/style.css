@@ -28,7 +28,7 @@ body{
 }
 
 .display-num{
-    font-size: 3.5em;
+    font-size: 3em;
     font-family: Arial, Helvetica, sans-serif;
     white-space: nowrap;
     overflow: hidden;
