@@ -143,13 +143,17 @@ function App() {
     setDisplayState(displayState / 100);
   };
 
+  const inverseButton = () => {
+    setDisplayState(displayState * (-1));
+  };
+
   return (
     <div className="container">
       <Display>{displayState}</Display>
 
       <div className="flex-grid">
         <Button onClick={() => handleClearClick()}className="top-operator-button">C</Button>
-        <Button className="top-operator-button">+/-</Button>
+        <Button className="top-operator-button" onClick={() => inverseButton()}>+/-</Button>
         <Button className="top-operator-button" onClick={() => div100()}>%</Button>
         <Button className="operator-button" isOn={operatorStates.divideState} onClick={() => handleOperatorClick("divideState")}>/</Button>
         <Button onClick={() => handleNumberClick("7")}>7</Button>
