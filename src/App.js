@@ -137,11 +137,11 @@ function App() {
     } else {
         return (number.toString() + digit.toString());
     }
-  }
+  };
 
-  function div100(){
-    
-  }
+  const div100 = () => {
+    setDisplayState(displayState / 100);
+  };
 
   return (
     <div className="container">
@@ -150,7 +150,7 @@ function App() {
       <div className="flex-grid">
         <Button onClick={() => handleClearClick()}className="top-operator-button">C</Button>
         <Button className="top-operator-button">+/-</Button>
-        <Button className="top-operator-button">%</Button>
+        <Button className="top-operator-button" onClick={() => div100()}>%</Button>
         <Button className="operator-button" isOn={operatorStates.divideState} onClick={() => handleOperatorClick("divideState")}>/</Button>
         <Button onClick={() => handleNumberClick("7")}>7</Button>
         <Button onClick={() => handleNumberClick("8")}>8</Button>
