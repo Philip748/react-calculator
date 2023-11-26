@@ -139,6 +139,10 @@ function App() {
     }
   }
 
+  function div100(){
+    
+  }
+
   return (
     <div className="container">
       <Display>{displayState}</Display>

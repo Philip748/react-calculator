@@ -84,4 +84,5 @@ body{
 
 .button-class:hover {
     filter: brightness(120%) !important;
+    cursor: pointer;
 }
